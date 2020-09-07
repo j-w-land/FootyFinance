@@ -1,0 +1,12 @@
+{
+    "python.pythonPath": "C:\\Users\\juwew\\.virtualenvs\\FootyFinanceApp-nnqgHm0P-JAi7RCew\\Scripts\\python.exe",
+    /* "python.linting.pylintEnabled": true, */
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": ["--ignore=F401, E501"],
+    /* "python.linting.pycodestyleEnabled": true, */
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    /* "python.linting.pylintPath": "pylint", */
+    /* "python.linting.pylintArgs": ["--load-plugins", "pylint_django"], */
+    
+}
