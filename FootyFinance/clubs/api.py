@@ -141,9 +141,12 @@ class FinancialStatementFactViewSet(viewsets.ModelViewSet):
         print("QQQQQQX:::")
         # print(qs)
         return qs'''
+
     def get_queryset(self):
         qs = FinancialStatementFact.objects.all()
         params = self.request.query_params.dict()
+        print("params")
+        print(params)
 
         invalid_param_keys = []
         for key in params:
@@ -201,5 +204,6 @@ class FinancialStatementLineViewSet(viewsets.ModelViewSet):
 
 
 class FinancialStatementFact_Clubs_ViewSet(FinancialStatementFactViewSet):
-    queryset = FinancialStatementFactViewSet.queryset.values('club_id').distinct().order_by('club_id')
+    queryset = FinancialStatementFactViewSet.queryset.values(
+        'club_id').distinct().order_by('club_id')
     print(queryset)

@@ -11,14 +11,20 @@ router = routers.DefaultRouter()
 router.register(r'api/fsdata', FinancialStatementFactViewSet)
 router.register(r'api/fslis', FinancialStatementLineViewSet)
 
+router.register(r'clubs', ClubViewSet, basename='clubs')
+router.register(r'fsdata', FinancialStatementFactViewSet)
+router.register(r'fslis', FinancialStatementLineViewSet)
+
 # router.register(r'api/clubs', ClubViewSet, basename='clubs')
 # router.register(r'api/clubs*', ClubViewSet, basename='clubs')
-router.register(r'^api/clubs', ClubViewSet, basename='clubs')
+
 # router.register(r'^api/clubs', ClubViewSet, basename='clubs')
 
+print("CLUBS_URLS")
 
 urlpatterns = [
     path('', include(router.urls)),
+    # path(r'^(?:.*)/?', include(router.urls)),
 ]
 
 # router.register('api/clubs', ClubViewSet, 'clubs')

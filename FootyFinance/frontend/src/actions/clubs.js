@@ -10,6 +10,7 @@ axios.create({
 });
 
 // GET CLUBS
+/*
 export const getClubs = () => (dispatch) => {
   axios
     .get("/api/clubs/")
@@ -20,6 +21,62 @@ export const getClubs = () => (dispatch) => {
       });
     })
     .catch((err) => console.log(err));
+};*/
+
+export const getClubs2 = () => {
+  //console.log("init_FSLI_items alkaa!!!");
+  return async (dispatch) => {
+    await axios({
+      method: "get",
+      url: "/api/clubs/",
+      params: {},
+    })
+      .then((res) => {
+        dispatch({
+          type: GET_CLUBS,
+          payload: res.data,
+        });
+
+        //fslis.push(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const getClubs = () => {
+  // console.log("init_FSLI_items_alkaa!!!");
+
+  const request = axios({
+    method: "get",
+    url: "/api/clubs",
+    params: {},
+  });
+
+  return async (dispatch) => {
+    console.log("INIT_FSLIs_err: ");
+    function onSuccess(success) {
+      dispatch({ type: GET_CLUBS, payload: success });
+      //console.log("INIT_FSLIs_err: " + success);
+      return success;
+    }
+    function onError(error) {
+      dispatch({ type: GET_FSLIs, payload: error });
+      /*
+      dispatch({ type: ERROR_GENERATED, error });
+      return error;
+*/ console.log(
+        "INIT_FSLIs_err: " + error
+      );
+      return error;
+    }
+
+    try {
+      const success = await request;
+      return onSuccess(success.data);
+    } catch (error) {
+      return onError(error);
+    }
+  };
 };
 
 // DELETE CLUBS

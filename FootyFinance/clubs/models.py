@@ -20,6 +20,8 @@ class FinancialStatementLine(models.Model):
     tag = models.CharField(max_length=50, unique=True)
     name = models.CharField(max_length=100, unique=True)
     description = models.CharField(max_length=1000)
+    parent = models.IntegerField()
+    totalLine = models.BooleanField()
     # sequences = relationship('FinancialStatementLineSequence', backref='line')
     # facts = relationship('FinancialStatementFact', backref='line')
 

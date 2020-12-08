@@ -10,6 +10,8 @@ from rest_framework.views import APIView
 from clubs.models import FinancialStatementFact
 from clubs.searilizers import FinancialStatementFactSerializer
 
+print("API_VIEWS_PY")
+
 
 @api_view(['GET'])
 def get_facts(request, format=None):

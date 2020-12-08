@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'u1utz7q7qadpjb9o2s-nwd+!1k=ywz999_)pu^cs8s(62#y2!-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True  # setUpRouting, True
 
 ALLOWED_HOSTS = ['192.168.1.23', '127.0.0.1']
 
@@ -31,12 +31,13 @@ ALLOWED_HOSTS = ['192.168.1.23', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    # 'whitenoise.runserver_nostatic',  # setUpRouting
+    'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'clubs',
     'rest_framework',
     'frontend',
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',  # setUpRouting
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -58,7 +60,10 @@ ROOT_URLCONF = 'FootyFinance.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            # os.path.join(BASE_DIR, 'templates'),  # setUpRouting
+            # os.path.join(BASE_DIR, 'staticfiles')  # setUpRouting
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,4 +135,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+# STATIC_HOST = 'http://127.0.0.1/' if not DEBUG else ''  # setUpRouting
+
 STATIC_URL = '/static/'
+
+
+# setUpRouting
+"""
+This bit below is key - this provides a list of directories that
+Django will look into for additional static assets. In our case, we want Django to collect the static assets created by our frontend build process
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend/static/frontend'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+"""

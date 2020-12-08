@@ -646,7 +646,7 @@ export function IncomeStatementTable(props) {
                   style={{ paddingBottom: 0, paddingTop: 1 }}
                   colSpan={4}
                 >
-                  {financial_years_selected[1] + "XX"}
+                  {financial_years_selected[1] + "!!"}
                 </TableCell>
               </TableRow>
             }

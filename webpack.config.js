@@ -19,6 +19,7 @@ module.exports = {
   watch: true,
   output: {
     path: path.resolve(__dirname, "./FootyFinance/frontend/static/frontend/"),
+    //publicPath: "/static/frontend",
     /* publicPath: 'src', */
     filename: "./main.js",
     //filename: "[name].[contenthash].js",
@@ -29,6 +30,10 @@ module.exports = {
         test: /\.js$/,
         exclude: [/nodule_modules/],
         use: "babel-loader",
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
