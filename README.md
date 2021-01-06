@@ -5,10 +5,10 @@ A web portal displaying finance data of Premier League teams.
 
 Technologies include: 
 
+-ReactJS
+
 -django
 
 -django rest api
-
--react
 
 -PostgreSQL
