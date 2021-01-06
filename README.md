@@ -12,3 +12,5 @@ Technologies include:
 -django rest api
 
 -PostgreSQL
+
+-Python SQLAlchemy
