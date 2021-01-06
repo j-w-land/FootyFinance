@@ -3,4 +3,8 @@
 
 A web portal displaying finance data of Premier League teams.
 
-Technologies include: //django &amp; django rest api // react // PostgreSQL
+Technologies include: 
+-django
+-django rest api
+-react
+-PostgreSQL
